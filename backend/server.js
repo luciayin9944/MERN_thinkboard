@@ -8,6 +8,9 @@ const app = express();
 // 所有以 "/api/notes" 开头的请求，交给 notesRoutes 处理
 app.use("/api/notes", notesRoutes);
 
+////other routes
+////app.use("/api/products", productRoutes);
+
 // 启动服务器，监听 5001 端口
 app.listen(5001, () => {
   console.log("Server started on PORT:5001");
