@@ -17,6 +17,15 @@ app.listen(5001, () => {
 });
 
 
+
+
+
+
+
+
+
+
+
 // app.get("/api/notes", (request, response)=>{
 //     response.status(200).send("you got 5 notes");
 // });
