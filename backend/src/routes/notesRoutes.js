@@ -1,6 +1,6 @@
 //notesRoutes.js
 import express from "express";
-import { getAllNotes, createNote, updateNote, deleteNote } from "../controllers/notesController.js"
+import { getAllNotes, createNote, updateNote, deleteNote, getNoteById } from "../controllers/notesController.js"
 
 // 1. 创建一个路由对象（子路由）
 const router = express.Router();
@@ -12,6 +12,7 @@ router.get("/", getAllNotes);
 //   res.status(200).send("you got 30 notes");
 // });
 
+router.get("/:id", getNoteById);
 
 router.post("/", createNote);
 // router.post("/", (req, res) => {

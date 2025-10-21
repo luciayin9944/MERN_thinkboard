@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 5001
 
 connectDB();
 
+// middleware
+app.use(express.json());
+
 // 使用子路由模块
 // 所有以 "/api/notes" 开头的请求，交给 notesRoutes 处理
 app.use("/api/notes", notesRoutes);
