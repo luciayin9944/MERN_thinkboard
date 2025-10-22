@@ -10,8 +10,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001
 
-connectDB();
-
 // middleware
 app.use(express.json());
 
@@ -23,9 +21,12 @@ app.use("/api/notes", notesRoutes);
 ////app.use("/api/products", productRoutes);
 
 // 启动服务器，监听 5001 端口
-app.listen(PORT, () => {
-  console.log("Server started on PORT:", PORT);
+connectDB().then(()=> {
+  app.listen(PORT, () => {
+    console.log("Server started on PORT:", PORT);
+  });
 });
+
 
 
 
