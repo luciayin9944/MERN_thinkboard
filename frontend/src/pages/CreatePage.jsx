@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 import { Link, useNavigate } from "react-router";
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, LoaderIcon } from "lucide-react";
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
@@ -35,6 +35,14 @@ const CreatePage = () => {
         }
     };
 
+    if (loading) {
+      return (
+        <div className="min-h-screen bg-base-200 flex items-center justify-center">
+          <LoaderIcon className="animate-spin size-10" />
+        </div>
+      );
+    }
+
   
     return (
       <div className="min-h-screen bg-base-200">
@@ -45,7 +53,8 @@ const CreatePage = () => {
                   Back to Notes
                 </Link>
 
-                <div className="card bg-base-100 shadow">
+                <div className="card bg-base-100 hover:shadow-lg transition-all duration-200 
+      border-t-4 border-solid border-[#00FF9D]">
                   <div className="card-body">
                     <h2 className="card-title text-2xl mb-4">Create New Note</h2>
                     <form onSubmit={handleSubmit}>
@@ -56,7 +65,7 @@ const CreatePage = () => {
                         <input
                             type="text"
                             placeholder='Note Title'
-                            className="input input-bordered w-full mt-1 border-pink-300"
+                            className="input input-bordered w-full mt-1"
                             value={title}
                             onChange={(e)=>setTitle(e.target.value)}
                         />
@@ -69,23 +78,21 @@ const CreatePage = () => {
                         <textarea
                             type="text"
                             placeholder="Write your note here..."
-                            className="textarea textarea-bordered w-full block h-32 mt-1 border-pink-300"
+                            className="textarea textarea-bordered w-full block h-32 mt-1"
                             value={content}
                             onChange={(e)=>setContent(e.target.value)}
                         />
                       </div>
 
                       <div className="flex justify-end">
-                        <button type='submit' className="btn btn-primary">Create Note</button>
+                        <button type='submit' className="btn btn-success">Create Note</button>
                       </div>
                     </form>
                   </div>
                 </div>
             </div>
         </div>
-      </div>
-
-      
+      </div> 
     );
 };
 

@@ -88,7 +88,8 @@ const NoteDetailPage = () => {
             </button>
           </div>
 
-          <div className="card bg-base-100">
+          <div className="card bg-base-100 hover:shadow-lg transition-all duration-200 
+      border-t-4 border-solid border-[#00FF9D]">
             <div className="card-body">
               <div className="form-control mb-4">
                 <label className="label w-full items-start">
@@ -116,7 +117,7 @@ const NoteDetailPage = () => {
               </div>
 
               <div className="card-actions justify-end">
-                <button className="btn btn-primary" disabled={saving} onClick={handleSave}>
+                <button className="btn btn-outline btn-primary" disabled={saving} onClick={handleSave}>
                   {saving ? "Saving..." : "Save Changes"}
                 </button>
               </div>
