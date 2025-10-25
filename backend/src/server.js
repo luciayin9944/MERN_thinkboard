@@ -3,6 +3,7 @@ import express from "express";
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 // console.log(process.env.MONGODB_URI);
@@ -11,12 +12,18 @@ const app = express();
 const PORT = process.env.PORT || 5001
 
 // middleware
+app.use(
+  cors({
+    origin:"http://localhost:5175",
+  })
+);
+
 app.use(express.json());
+
 
 // 使用子路由模块
 // 所有以 "/api/notes" 开头的请求，交给 notesRoutes 处理
 app.use("/api/notes", notesRoutes);
-
 ////other routes
 ////app.use("/api/products", productRoutes);
 
